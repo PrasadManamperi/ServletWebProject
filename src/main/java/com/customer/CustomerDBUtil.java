@@ -86,4 +86,12 @@ public class CustomerDBUtil {
     	return isSuccess;
     }
     
+    
+//    Update User Details
+    public static boolean updateCustomer(String name, String email, String phone, String username, String password) {
+    	
+    }
+    
+    
+    
 }
