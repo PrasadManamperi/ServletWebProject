@@ -11,7 +11,11 @@
 	<jsp:include page="navigation.jsp" />
 	<div class="container">
         <h2>Update</h2>
-        <form action="#" method="post">
+        <form action="updateUser" method="post">
+        	<div class="mb-3">
+                <label for="uid" class="form-label">ID</label>
+                <input type="text" class="form-control" id="uid" name="uid" value="${sessionScope.user.id}" readonly>
+            </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="${sessionScope.user.name}" required>

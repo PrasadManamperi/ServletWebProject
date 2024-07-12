@@ -12,6 +12,7 @@
 <jsp:include page="navigation.jsp" />
 
     <c:if test="${not empty sessionScope.user}">
+    	<p>ID ${sessionScope.user.id}</p>
         <p>Welcome, ${sessionScope.user.name}!</p>
         <p>Email: ${sessionScope.user.email}</p>
         <p>Phone: ${sessionScope.user.phone}</p>

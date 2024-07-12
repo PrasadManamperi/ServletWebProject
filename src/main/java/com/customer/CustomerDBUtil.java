@@ -57,11 +57,11 @@ public class CustomerDBUtil {
         return user;
     }
     
-    
+    boolean isSuccess = false;
 //    Insert Users(Registration Users)
     public static boolean insertCustomer(String name, String email, String phone, String username, String password) {
-		
     	boolean isSuccess = false;
+    	
         
         try {
 //        	create DB connection
@@ -88,8 +88,29 @@ public class CustomerDBUtil {
     
     
 //    Update User Details
-    public static boolean updateCustomer(String name, String email, String phone, String username, String password) {
+    public static boolean updateCustomer(String id, String name, String email, String phone, String username, String password) {
+    	boolean isSuccess = false;
     	
+    	try {
+    		// Create database connection
+    		con = DBConnect.getConnection();
+    		stmt = con.createStatement();
+    		// SQL query
+    		String sql = "update customer set name='"+name+"',email='"+email+"',customercol='"+phone+"',username='"+username+"',password='"+password+"' where id='"+id+"'";
+    		int rs = stmt.executeUpdate(sql);
+    		
+    		if(rs > 0) {
+    			isSuccess = true; 
+    		} else {
+    			isSuccess = false;
+    		}
+    		
+    		
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return isSuccess;
     }
     
     

@@ -25,13 +25,11 @@
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>UpdateUserServlet</display-name>
     <servlet-name>UpdateUserServlet</servlet-name>
     <servlet-class>com.customer.UpdateUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdateUserServlet</servlet-name>
-    <url-pattern>/UpdateUserServlet</url-pattern>
+    <url-pattern>/updateUser</url-pattern>
   </servlet-mapping>
 </web-app>
