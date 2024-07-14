@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+//import jakarta.servlet.http.HttpSession;
+
 public class CustomerDBUtil {
 
 	private static Connection con = null;
@@ -32,6 +34,7 @@ public class CustomerDBUtil {
                 String passU = rs.getString("password");
                 
                 user = new Customer(id, name, email, phone, userU, passU, "customer");
+                
             } else {
 //                 Check in admin table
                 String adminSql = "SELECT * FROM admin WHERE username='" + userName + "' AND password='" + password + "'";
@@ -111,7 +114,9 @@ public class CustomerDBUtil {
     	}
     	
     	return isSuccess;
+    	
     }
+    
     
     
     
