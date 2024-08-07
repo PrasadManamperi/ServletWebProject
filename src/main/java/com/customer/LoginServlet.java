@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
         Customer user = CustomerDBUtil.validateUser(username, password);
         
         if (user == null) {
-//             handle login failure 
+//             handle login failure
             response.sendRedirect("login.jsp");
         } else {
 //             Set user details in session

@@ -4,6 +4,8 @@ import java.sql.Connection;
 //import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 //import jakarta.servlet.http.HttpSession;
 
@@ -118,6 +120,38 @@ public class CustomerDBUtil {
     }
     
     
+    public static List<Customer> getCustomerDetails(String id) {
+    	
+    	int convertedId = Integer.parseInt(id);
+    	
+    	ArrayList<Customer> cus = new ArrayList<>();
+    	
+    	try {
+    		
+    		con = DBConnect.getConnection();
+    		stmt = con.createStatement();
+    		String sql = "select * from customer where id = '"+convertedId+"'";
+    		rs = stmt.executeQuery(sql);
+    		
+    		while(rs.next()) {
+    			int id = rs.getInt(1);
+    			String name = rs.getString(2);
+    			String email = rs.getString(3);
+    			String phone = rs.getString(4);
+    			String userName = rs.getString(5);
+    			String password = rs.getString(6);
+    			String rolel = "";
+    			
+    			Customer c = new Customer(id, name, email, phone, userName, password, rolel);
+    			cus.add(c);
+    		}
+    		
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return cus;
+    }
     
     
 }
